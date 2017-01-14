@@ -1,6 +1,5 @@
 <?php
 namespace SapiStudio\Charts\Amchart;
-use SapiStudio\Charts\Handler;
 /*
  * AmCharts-PHP 0.3
  * Copyright (C) 2009-2014 Fusonic GmbH
@@ -24,7 +23,7 @@ use SapiStudio\Charts\Handler;
 /**
  * Base class for amChart PHP-Library
  */
-abstract class AmChart extends Handler
+abstract class AmChart extends \Charts\Handler
 {
     protected $config = [];
     protected $libraryPath;
@@ -130,12 +129,12 @@ abstract class AmChart extends Handler
     
     public function prepareData()
     {
-        //$this->setConfig("pathToImages", $this->libraryPath.'/images/');
+        $this->setConfig("pathToImages", $this->libraryPath.'/images/');
         $this->setConfig("categoryField", $this->_categoryField);
         $this->setConfig("marginRight", 40);
         $this->setConfig("marginLeft", 40);
         $this->setConfig("autoMarginOffset", 20);
-        //$this->setConfig("chartScrollbar", ["gridAlpha"=>0,"color"=>"#888888","scrollbarHeight"=>2,"backgroundAlpha"=>0,"selectedBackgroundAlpha"=>0.1,"selectedBackgroundColor"=>"#888888","graphFillAlpha"=>0,"autoGridCount"=>true,"selectedGraphFillAlpha"=>0,"graphLineAlpha"=>0.2,"graphLineColor"=>"#c2c2c2","selectedGraphLineColor"=>"#888888","selectedGraphLineAlpha"=>1]);
+        $this->setConfig("chartScrollbar", ["gridAlpha"=>0,"color"=>"#888888","scrollbarHeight"=>2,"backgroundAlpha"=>0,"selectedBackgroundAlpha"=>0.1,"selectedBackgroundColor"=>"#888888","graphFillAlpha"=>0,"autoGridCount"=>true,"selectedGraphFillAlpha"=>0,"graphLineAlpha"=>0.2,"graphLineColor"=>"#c2c2c2","selectedGraphLineColor"=>"#888888","selectedGraphLineAlpha"=>1]);
         $this->setConfig("chartCursor",["cursorPointer" => "mouse","pan" =>true,"valueLineEnabled" => true,"cursorAlpha" =>0.1,"cursorColor" => "#000000","valueLineBalloonEnabled" =>true,"fullWidth" =>true,"cursorColor" => "#258cbb","valueLineAlpha" => 0.2,"valueZoomable" => true]);
         //$this->setConfig("chartCursor",["categoryBalloonDateFormat" => "DD","cursorAlpha" =>0.1,"cursorColor" => "#000000","fullWidth" =>true,"valueBalloonsEnabled" => false,"zoomable" => false]);
         $this->setConfig("categoryAxis",["parseDates" => true,"dashLength" =>1,"minorGridEnabled" => true]);
@@ -143,7 +142,8 @@ abstract class AmChart extends Handler
         $this->setConfig("dataDateFormat","YYYY-MM-DD");
         $this->setConfig("theme","light");
         $this->setConfig("theme","light");
-        $this->setConfig('valueAxes',$this->chartSettings['valueAxes']);
+        if($this->chartSettings['valueAxes'])
+            $this->setConfig('valueAxes',$this->chartSettings['valueAxes']);
         $this->setConfig('legend',["enabled"=>true,"useGraphSettings"=>true]);
         $default = ["balloonText"=>"[[title]] :[[value]]","bullet"=>"round","bulletBorderAlpha"=>2,"bulletColor"=> "#FFFFFF","bulletSize"=> 1,"useLineColorForBulletBorder"=>true,"legendPeriodValueText"=>"[[value.sum]]","legendValueText"=> "[[value]]"];
         foreach($this->getYkeys() as $a=>$value){
