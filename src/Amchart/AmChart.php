@@ -134,7 +134,7 @@ abstract class AmChart extends \Charts\Handler
         $this->setConfig("marginRight", 40);
         $this->setConfig("marginLeft", 40);
         $this->setConfig("autoMarginOffset", 20);
-        $this->setConfig("chartScrollbar", ["gridAlpha"=>0,"color"=>"#888888","scrollbarHeight"=>2,"backgroundAlpha"=>0,"selectedBackgroundAlpha"=>0.1,"selectedBackgroundColor"=>"#888888","graphFillAlpha"=>0,"autoGridCount"=>true,"selectedGraphFillAlpha"=>0,"graphLineAlpha"=>0.2,"graphLineColor"=>"#c2c2c2","selectedGraphLineColor"=>"#888888","selectedGraphLineAlpha"=>1]);
+        //$this->setConfig("chartScrollbar", ["gridAlpha"=>0,"color"=>"#888888","scrollbarHeight"=>2,"backgroundAlpha"=>0,"selectedBackgroundAlpha"=>0.1,"selectedBackgroundColor"=>"#888888","graphFillAlpha"=>0,"autoGridCount"=>true,"selectedGraphFillAlpha"=>0,"graphLineAlpha"=>0.2,"graphLineColor"=>"#c2c2c2","selectedGraphLineColor"=>"#888888","selectedGraphLineAlpha"=>1]);
         $this->setConfig("chartCursor",["cursorPointer" => "mouse","pan" =>true,"valueLineEnabled" => true,"cursorAlpha" =>0.1,"cursorColor" => "#000000","valueLineBalloonEnabled" =>true,"fullWidth" =>true,"cursorColor" => "#258cbb","valueLineAlpha" => 0.2,"valueZoomable" => true]);
         //$this->setConfig("chartCursor",["categoryBalloonDateFormat" => "DD","cursorAlpha" =>0.1,"cursorColor" => "#000000","fullWidth" =>true,"valueBalloonsEnabled" => false,"zoomable" => false]);
         $this->setConfig("categoryAxis",["parseDates" => true,"dashLength" =>1,"minorGridEnabled" => true]);
