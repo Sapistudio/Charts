@@ -1,6 +1,7 @@
 <?php
 
 namespace SapiStudio\Charts\Morris;
+use SapiStudio\Charts\Handler;
 /**
  * Morris Charts common model
  *
@@ -11,7 +12,7 @@ namespace SapiStudio\Charts\Morris;
  * @version         1.0.0
  *
  */
-abstract class MorrisCharts extends \Charts\Handler
+abstract class MorrisCharts extends Handler
 {
     /**
      * A string containing the name of the attribute that contains date (X) values.
