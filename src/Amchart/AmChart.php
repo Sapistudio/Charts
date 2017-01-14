@@ -23,7 +23,7 @@ namespace SapiStudio\Charts\Amchart;
 /**
  * Base class for amChart PHP-Library
  */
-abstract class AmChart extends \Charts\Handler
+abstract class AmChart extends \SapiStudio\Charts\Handler
 {
     protected $config = [];
     protected $libraryPath;
