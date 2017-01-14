@@ -1,5 +1,6 @@
 <?php
 namespace SapiStudio\Charts\Amchart;
+use SapiStudio\Charts\Handler;
 /*
  * AmCharts-PHP 0.3
  * Copyright (C) 2009-2014 Fusonic GmbH
@@ -19,15 +20,13 @@ namespace SapiStudio\Charts\Amchart;
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
  */
-
 /**
  * Base class for amChart PHP-Library
  */
-abstract class AmChart extends \Charts\Handler
+abstract class AmChart extends Handler
 {
     protected $config = [];
     protected $libraryPath;
-
     /**
      * Constructor can only be called from derived class because AmChart
      * is abstract.
@@ -43,7 +42,6 @@ abstract class AmChart extends \Charts\Handler
         $this->config['height'] = "300px";
         $this->setDefaultConfig();
     }
-
     /**
      * Add a title to the chart
      *
@@ -64,7 +62,6 @@ abstract class AmChart extends \Charts\Handler
             "alpha" => $alpha
         ];
     }
-
     /**
      * Returns the HTML Code to insert on the page.
      *
@@ -90,7 +87,6 @@ abstract class AmChart extends \Charts\Handler
         unset($this->config["height"]);
         return 'var chart = AmCharts.makeChart("' . $this->element . '",' . $this->getChartJSON() . ');';
     }
-
     /**
      * Sets the config array. It should look like this:
      * array(
@@ -115,7 +111,6 @@ abstract class AmChart extends \Charts\Handler
             $this->config = $config;
         }
     }
-
     /**
      * Sets one config variable.
      *
@@ -129,12 +124,12 @@ abstract class AmChart extends \Charts\Handler
     
     public function prepareData()
     {
-        $this->setConfig("pathToImages", $this->libraryPath.'/images/');
+        //$this->setConfig("pathToImages", $this->libraryPath.'/images/');
         $this->setConfig("categoryField", $this->_categoryField);
         $this->setConfig("marginRight", 40);
         $this->setConfig("marginLeft", 40);
         $this->setConfig("autoMarginOffset", 20);
-        $this->setConfig("chartScrollbar", ["gridAlpha"=>0,"color"=>"#888888","scrollbarHeight"=>2,"backgroundAlpha"=>0,"selectedBackgroundAlpha"=>0.1,"selectedBackgroundColor"=>"#888888","graphFillAlpha"=>0,"autoGridCount"=>true,"selectedGraphFillAlpha"=>0,"graphLineAlpha"=>0.2,"graphLineColor"=>"#c2c2c2","selectedGraphLineColor"=>"#888888","selectedGraphLineAlpha"=>1]);
+        //$this->setConfig("chartScrollbar", ["gridAlpha"=>0,"color"=>"#888888","scrollbarHeight"=>2,"backgroundAlpha"=>0,"selectedBackgroundAlpha"=>0.1,"selectedBackgroundColor"=>"#888888","graphFillAlpha"=>0,"autoGridCount"=>true,"selectedGraphFillAlpha"=>0,"graphLineAlpha"=>0.2,"graphLineColor"=>"#c2c2c2","selectedGraphLineColor"=>"#888888","selectedGraphLineAlpha"=>1]);
         $this->setConfig("chartCursor",["cursorPointer" => "mouse","pan" =>true,"valueLineEnabled" => true,"cursorAlpha" =>0.1,"cursorColor" => "#000000","valueLineBalloonEnabled" =>true,"fullWidth" =>true,"cursorColor" => "#258cbb","valueLineAlpha" => 0.2,"valueZoomable" => true]);
         //$this->setConfig("chartCursor",["categoryBalloonDateFormat" => "DD","cursorAlpha" =>0.1,"cursorColor" => "#000000","fullWidth" =>true,"valueBalloonsEnabled" => false,"zoomable" => false]);
         $this->setConfig("categoryAxis",["parseDates" => true,"dashLength" =>1,"minorGridEnabled" => true]);
@@ -152,14 +147,12 @@ abstract class AmChart extends \Charts\Handler
         }
             
     }
-
     /**
      * Returns the config array.
      *
      * @return	array
      */
     public abstract function getConfig();
-
     /**
      * Returns the ready-to-use config JSON string
      * @return	string
@@ -169,14 +162,12 @@ abstract class AmChart extends \Charts\Handler
         $this->config["dataProvider"] = $this->getData();
         return json_encode($this->getConfig());
     }
-
     /**
      * Returns the path to the chart-specific js file.
      *
      * @return	string
      */
     protected abstract function getJSPath();
-
     /**
      * Sets the Path of the JS file the chart uses
      *
@@ -184,7 +175,6 @@ abstract class AmChart extends \Charts\Handler
      * @return      void
      */
     protected abstract function setJSPath($path);
-
     /**
      * @param   string          $libraryPath
      */
@@ -192,7 +182,6 @@ abstract class AmChart extends \Charts\Handler
     {
         $this->libraryPath = $libraryPath;
     }
-
     /**
      * @return  string
      */
@@ -200,7 +189,5 @@ abstract class AmChart extends \Charts\Handler
     {
         return $this->libraryPath;
     }
-
     protected abstract function setDefaultConfig();
-
 }
