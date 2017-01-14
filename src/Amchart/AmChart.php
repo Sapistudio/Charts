@@ -129,7 +129,7 @@ abstract class AmChart extends \Charts\Handler
     
     public function prepareData()
     {
-        $this->setConfig("pathToImages", $this->libraryPath.'/images/');
+        //$this->setConfig("pathToImages", $this->libraryPath.'/images/');
         $this->setConfig("categoryField", $this->_categoryField);
         $this->setConfig("marginRight", 40);
         $this->setConfig("marginLeft", 40);
