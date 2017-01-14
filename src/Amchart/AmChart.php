@@ -1,5 +1,6 @@
 <?php
 namespace SapiStudio\Charts\Amchart;
+use SapiStudio\Charts\Handler;
 /*
  * AmCharts-PHP 0.3
  * Copyright (C) 2009-2014 Fusonic GmbH
@@ -23,7 +24,7 @@ namespace SapiStudio\Charts\Amchart;
 /**
  * Base class for amChart PHP-Library
  */
-abstract class AmChart extends \SapiStudio\Charts\Handler
+abstract class AmChart extends Handler
 {
     protected $config = [];
     protected $libraryPath;
