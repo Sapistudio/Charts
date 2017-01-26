@@ -26,8 +26,6 @@ class AmWorldChart extends AmChart
     protected function setDefaultConfig()
     {
         $this->config['type'] = "map";
-        $this->config['titleField'] = "title";
-        $this->config['valueField'] = "value";
     }
     /**
      * Returns the config array.
