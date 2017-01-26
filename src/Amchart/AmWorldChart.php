@@ -8,7 +8,7 @@ namespace SapiStudio\Charts\Amchart;
 class AmWorldChart extends AmChart
 {
     protected $defaultSliceConfig = array();
-    protected $jsPath = "pie.js";
+    protected $jsPath = "map.js";
     /**
      * @see AmChart::getJSPath()
      */
@@ -25,7 +25,7 @@ class AmWorldChart extends AmChart
     }
     protected function setDefaultConfig()
     {
-        $this->config['type'] = "pie";
+        $this->config['type'] = "map";
         $this->config['titleField'] = "title";
         $this->config['valueField'] = "value";
     }
