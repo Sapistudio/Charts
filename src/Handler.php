@@ -91,6 +91,11 @@ abstract class Handler
         return $this;
     }
     
+    public function getElement($element_id)
+    {
+        return $this->element;
+    }
+    
     /**
      * Return the array of this object
      *
@@ -188,7 +193,7 @@ abstract class Handler
     }
     
     /**
-     * Handler::getCode()
+     * Handler::prepareData()
      * 
      * @return
      */
@@ -215,8 +220,7 @@ abstract class Handler
      */
     public function toJavascript()
     {
-        return $this->getCode() . '<script type="text/javascript">' . "\n" . $this->
-            toRemote() . "\n" . '</script>' . "\n";
+        return $this->getCode() . '<script type="text/javascript">' . "\n" . $this->toRemote() . "\n" . '</script>' . "\n";
     }
     
     /**
@@ -226,6 +230,6 @@ abstract class Handler
      */
     public function toRemote()
     {
-        return 'jQuery(function ( $ ){"use strict";' . $this->getJavaCode() . ';});';
+        return 'jQuery(function ( $ ){"use strict"; var '.$this->getElement().'=' . $this->getJavaCode() . ';});';
     }
 }
