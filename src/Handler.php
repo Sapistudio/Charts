@@ -184,7 +184,7 @@ abstract class Handler
      */
     public function getData()
     {
-        return (isset($this->data[0)) ? $this->data[0] : $this->data;
+        return (isset($this->data[0])) ? $this->data[0] : $this->data;
     }
     
     /**
