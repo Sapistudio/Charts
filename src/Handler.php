@@ -132,7 +132,7 @@ abstract class Handler
      */
     public function getYkeys()
     {
-        $main = $this->getData()[0];
+        $main = $this->getData();
         return array_values(array_diff(array_keys($main), $this->_categoryField));
     }
     
@@ -184,7 +184,7 @@ abstract class Handler
      */
     public function getData()
     {
-        return $this->data;
+        return (isset($this->data[0)) ? $this->data[0] : $this->data;
     }
     
     /**
