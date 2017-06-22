@@ -19,7 +19,7 @@ class MorrisLineCharts extends MorrisCharts {
    *
    * @var array $lineColors
    */
-  public $lineColors = array( '#0b62a4', '#7A92A3', '#4da74d', '#afd8f8', '#edc240', '#cb4b4b', '#9440ed' );
+  public $lineColors = ['#16a085', '#ff0066', '#1693a5','#ff4a43','#a40778','#428bca','#f0ad4e','#9675ce','#20c7ce','#e9422e','#9932cc'];
 
   /**
    * Width of the series lines, in pixels.
@@ -46,7 +46,7 @@ class MorrisLineCharts extends MorrisCharts {
    *
    * @var array $pointFillColors
    */
-  public $pointFillColors = array();
+  public $pointFillColors = [];
 
   /**
    * Colors for the outlines of the series points. (#ffffff by default).
@@ -55,7 +55,7 @@ class MorrisLineCharts extends MorrisCharts {
    *
    * @var array $pointStrokeColors
    */
-  public $pointStrokeColors = array();
+  public $pointStrokeColors = [];
 
   /**
    * Set to false to disable line smoothing.
@@ -100,7 +100,7 @@ class MorrisLineCharts extends MorrisCharts {
    *
    * @var array $xLabels
    */
-  public $xLabels = array();
+  public $xLabels = [];
 
   /**
    * A function that accepts Date objects and formats them for display as x-axis labels. Overrides the default formatter
