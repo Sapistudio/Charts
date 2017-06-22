@@ -78,7 +78,7 @@ abstract class MorrisCharts extends Handler
      *
      * @var string
      */
-    public $hideHover = 'auto';
+    public $hideHover = 'always';
     /**
      * Provide a function on this option to generate custom hover legends. The function will be called with the index of
      * the row under the hover legend, the options object passed to the constructor as arguments, and a string containing
@@ -154,11 +154,11 @@ abstract class MorrisCharts extends Handler
      *
      * @var bool $resize
      */
-    public $resize = false;
-    public $rangeSelect = null;
-    public $rangeSelectColor = '#eef';
-    public $padding = 25;
-    public $numLines = 5;
+    public $resize              = false;
+    public $rangeSelect         = null;
+    public $rangeSelectColor    = '#eef';
+    public $padding             = 25;
+    public $numLines            = 5;
     /**
      * A list of x-values to draw as vertical 'event' lines on the chart.
      *
@@ -261,10 +261,13 @@ abstract class MorrisCharts extends Handler
         $this->__chart_type = $chart;
     }
     
-    public function setConfig($values)
-    {
-        
-    }
+    /**
+     * MorrisCharts::setConfig()
+     * 
+     * @param mixed $values
+     * @return void
+     */
+    public function setConfig($values){}
     
     
     /**
@@ -273,11 +276,13 @@ abstract class MorrisCharts extends Handler
      * @brief Brief
      * @return string
      */
-    public function getCode()
-    {
-        
-    }
+    public function getCode(){}
     
+    /**
+     * MorrisCharts::prepareData()
+     * 
+     * @return void
+     */
     public function prepareData()
     {   
         $ykeys          = $this->getYkeys();
@@ -287,12 +292,24 @@ abstract class MorrisCharts extends Handler
     }
     
     /**
-     * MorrisCharts::toRemote()
+     * MorrisCharts::BuildLegend()
+     * 
+     * @return
+     */
+    public function BuildLegend(){
+        return 'var legendItem = "";
+        '.$this->getElement().'.options.labels.forEach(function(label, i){
+            legendItem += "<span class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.lineColors[i]+"\">&nbsp;</i>"+label+"</span>";
+        });';
+    }
+    
+    /**
+     * MorrisCharts::getJavaCode()
      * 
      * @return
      */
     public function getJavaCode()
     {
-        return 'Morris.' . $this->__chart_type . '(' . $this->toJSON() . ');';
+        return 'Morris.' . $this->__chart_type . '(' . $this->toJSON() . ');'.$this->BuildLegend().'$("#'.$this->getElement().'").append("<div class=\"'.strtolower($this->__chart_type).' morrisLegend\">"+legendItem+"</div>");';
     }
 }
