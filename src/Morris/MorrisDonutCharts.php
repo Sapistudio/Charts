@@ -10,7 +10,7 @@ namespace SapiStudio\Charts\Morris;
  * @version         1.0.0
  *
  */
-class MorrisDonutCharts extends Handler {
+class MorrisDonutCharts extends MorrisCharts  {
 
   /**
    * An array of strings containing HTML-style hex colors for each of the donut segments. Note: if there are fewer
