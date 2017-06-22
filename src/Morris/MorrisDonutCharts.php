@@ -20,7 +20,7 @@ class MorrisDonutCharts extends MorrisCharts  {
    *
    * @var array $colors
    */
-  public $colors = array( '#0B62A4', '#3980B5', '#679DC6', '#95BBD7', '#B0CCE1', '#095791', '#095085', '#083E67', '#052C48', '#042135' );
+  public $colors = ['#16a085', '#ff0066', '#1693a5','#ff4a43','#428bca','#f0ad4e','#9675ce','#20c7ce','#e9422e','#9932cc'];
 
   /**
    * A function that will translate a y-value into a label for the centre of the donut.
@@ -35,8 +35,8 @@ class MorrisDonutCharts extends MorrisCharts  {
    */
   public $formatter = '';
 
-  public $backgroundColor = '#FFFFFF';
-  public $labelColor = '#000000';
+  public $backgroundColor   = '#FFFFFF';
+  public $labelColor        = '#000000';
 
   /**
    * Create an instance of MorrisDonutCharts class
@@ -51,5 +51,16 @@ class MorrisDonutCharts extends MorrisCharts  {
   {
     parent::__construct( $element_id, MorrisChartTypes::DONUT );
   }
-
+  
+  /**
+   * MorrisDonutCharts::BuildLegend()
+   * 
+   * @return
+   */
+  public function BuildLegend(){
+        return 'var legendItem = "";
+        '.$this->getElement().'.options.data.forEach(function(label, i){
+            legendItem += "<span class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.colors[i]+"\">&nbsp;</i>"+label["label"]+"</span>";
+        });';
+    }
 }
