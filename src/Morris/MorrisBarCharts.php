@@ -12,15 +12,11 @@ namespace SapiStudio\Charts\Morris;
  */
 class MorrisBarCharts extends MorrisCharts {
 
-  public $barSizeRatio = 0.75;
-
-  public $barGap = 3;
-
-  public $barOpacity = 1.0;
-
-  public $barRadius = array( 0, 0, 0, 0 );
-
-  public $xLabelMargin = 50;
+  public $barSizeRatio  = 0.75;
+  public $barGap        = 3;
+  public $barOpacity    = 1.0;
+  public $barRadius     = [0, 0, 0, 0 ];
+  public $xLabelMargin  = 50;
 
   /**
    * Array containing colors for the series bars.
@@ -29,15 +25,7 @@ class MorrisBarCharts extends MorrisCharts {
    *
    * @var array $barColors
    */
-  public $barColors = array(
-    '#0b62a4',
-    '#7a92a3',
-    '#4da74d',
-    '#afd8f8',
-    '#edc240',
-    '#cb4b4b',
-    '#9440ed'
-  );
+  public $barColors = ['#16a085', '#ff0066', '#1693a5','#ff4a43','#a40778','#428bca','#f0ad4e','#9675ce','#20c7ce','#e9422e','#9932cc'];
 
   /**
    * Set to true to draw bars stacked vertically.
@@ -61,4 +49,16 @@ class MorrisBarCharts extends MorrisCharts {
   {
     parent::__construct( $element_id, MorrisChartTypes::BAR );
   }
+  
+  /**
+   * MorrisBarCharts::BuildLegend()
+   * 
+   * @return
+   */
+  public function BuildLegend(){
+        return 'var legendItem = "";
+        '.$this->getElement().'.options.labels.forEach(function(label, i){
+            legendItem += "<span class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.barColors[i]+"\">&nbsp;</i>"+label+"</span>";
+        });';
+    }
 }
