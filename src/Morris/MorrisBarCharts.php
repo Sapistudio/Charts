@@ -25,7 +25,7 @@ class MorrisBarCharts extends MorrisCharts {
    *
    * @var array $barColors
    */
-  public $barColors = ['#16a085', '#ff0066', '#1693a5','#ff4a43','#a40778','#428bca','#f0ad4e','#9675ce','#20c7ce','#e9422e','#9932cc'];
+  public $barColors = ["#00a5a8","#ff7d4d","#ff4558","#2bd7a3","#626e82","#dd8d56","#ff7588"];
 
   /**
    * Set to true to draw bars stacked vertically.

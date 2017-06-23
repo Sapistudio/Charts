@@ -78,7 +78,7 @@ abstract class MorrisCharts extends Handler
      *
      * @var string
      */
-    public $hideHover = 'always';
+    public $hideHover = 'auto';
     /**
      * Provide a function on this option to generate custom hover legends. The function will be called with the index of
      * the row under the hover legend, the options object passed to the constructor as arguments, and a string containing
