@@ -299,7 +299,7 @@ abstract class MorrisCharts extends Handler
     public function BuildLegend(){
         return 'var legendItem = "";
         '.$this->getElement().'.options.labels.forEach(function(label, i){
-            legendItem += "<span class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.lineColors[i]+"\">&nbsp;</i>"+label+"</span>";
+            legendItem += "<li class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.lineColors[i]+"\">&nbsp;</i>"+label+"</li>";
         });';
     }
     

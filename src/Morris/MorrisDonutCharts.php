@@ -60,7 +60,7 @@ class MorrisDonutCharts extends MorrisCharts  {
   public function BuildLegend(){
         return 'var legendItem = "";
         '.$this->getElement().'.options.data.forEach(function(label, i){
-            legendItem += "<span class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.colors[i]+"\">&nbsp;</i>"+label["label"]+"</span>";
+            legendItem += "<li class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.colors[i]+"\">&nbsp;</i>"+label["label"]+"</li>";
         });';
     }
 }
