@@ -79,6 +79,11 @@ abstract class Handler
         $this->__chart_type = $chart;
     }
     
+    public function __set($key, $value)
+    {
+        $this->$key = $value;
+    }
+    
     /**
      * Handler::setElement()
      * 
