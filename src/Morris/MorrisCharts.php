@@ -255,6 +255,12 @@ abstract class MorrisCharts extends Handler
      *
      * @return Morris
      */
+     
+    public $makeLegend = true;
+    
+    public $legendItem = null;
+    
+    
     public function __construct($element_id = null, $chart = MorrisChartTypes::LINE)
     {
         $this->element      = $element_id;
@@ -269,6 +275,18 @@ abstract class MorrisCharts extends Handler
      */
     public function setConfig($values){}
     
+    /**
+     * MorrisCharts::setLegend()
+     * 
+     * @param bool $legend
+     * @return void
+     */
+    public function setLegend($legend=false){
+        if(!$legend)
+            $this->makeLegend = false;
+        else
+            $this->legendItem = $legend;
+    }
     
     /**
      * Return the HTML markup for Javascript code
@@ -297,7 +315,9 @@ abstract class MorrisCharts extends Handler
      * @return
      */
     public function BuildLegend(){
-        return 'var legendItem = "";
+        if(!$this->makeLegend)
+            return false;
+        return (!is_null($this->legendItem)) ? 'var legendItem = "'.$this->legendItem.'"' : 'var legendItem = "";
         '.$this->getElement().'.options.labels.forEach(function(label, i){
             legendItem += "<li class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.lineColors[i]+"\">&nbsp;</i>"+label+"</li>";
         });';
@@ -310,6 +330,10 @@ abstract class MorrisCharts extends Handler
      */
     public function getJavaCode()
     {
-        return 'Morris.' . $this->__chart_type . '(' . $this->toJSON() . ');'.$this->BuildLegend().'$("#'.$this->getElement().'").append("<div class=\"'.strtolower($this->__chart_type).' morrisLegend\">"+legendItem+"</div>");';
+        $legend = $this->BuildLegend();
+        $jsCode = 'Morris.' . $this->__chart_type . '(' . $this->toJSON() . ');';
+        if($legend)
+            $jsCode .= $legend.'$("#'.$this->getElement().'").append("<div class=\"'.strtolower($this->__chart_type).' morrisLegend\">"+legendItem+"</div>");';
+        return $jsCode;
     }
 }
