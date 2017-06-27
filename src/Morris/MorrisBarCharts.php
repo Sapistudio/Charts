@@ -56,6 +56,8 @@ class MorrisBarCharts extends MorrisCharts {
    * @return
    */
   public function BuildLegend(){
+    if(!$this->makeLegend)
+            return false;
         return 'var legendItem = "";
         '.$this->getElement().'.options.labels.forEach(function(label, i){
             legendItem += "<li class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.barColors[i]+"\">&nbsp;</i>"+label+"</li>";
