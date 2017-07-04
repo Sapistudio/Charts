@@ -286,6 +286,7 @@ abstract class MorrisCharts extends Handler
             $this->makeLegend = false;
         else
             $this->legendItem = $legend;
+        return $this;
     }
     
     /**
