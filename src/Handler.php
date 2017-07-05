@@ -160,7 +160,7 @@ abstract class Handler
      */
     public function toJSON()
     {
-        return json_encode($this->toArray());
+        return str_ireplace(["'function",'"function',"}'",'}"'],["function",'function',"}",'}'],json_encode($this->toArray()));
     }
     
     /**
