@@ -17,46 +17,20 @@ abstract class MorrisCharts extends Handler
     /**
      * A string containing the name of the attribute that contains date (X) values.
      * Timestamps are accepted in the form of millisecond timestamps (as returned by Date.getTime() or as strings in the following formats:
-     * 2012
-     * 2012 Q1
-     * 2012 W1
-     * 2012-02
-     * 2012-02-24
-     * 2012-02-24 15:00
-     * 2012-02-24 15:00:00
-     * 2012-02-24 15:00:00.000
-     *
-     * Note: when using millisecond timestamps, it's recommended that you check out the dateFormat option.
-     * Note 2: date/time strings can optionally contain a T between the date and time parts, and/or a Z suffix, for compatibility with ISO-8601 dates.
-     *
-     * @brief XKeys
-     *
-     * @var array $xkey
      */
     public $xkey = [];
     /**
      * A list of strings containing names of attributes that contain Y values (one for each series of data to be plotted).
-     *
-     * @brief YKeys
-     *
-     * @var array $ykeys
      */
     public $ykeys = [];
     /**
      * A list of strings containing labels for the data series to be plotted (corresponding to the values in the ykeys option).
-     *
-     * @brief Labels
-     *
-     * @var array $labels
      */
     public $labels = [];
     /**
      * Max. bound for Y-values. Alternatively, set this to 'auto' to compute automatically, or 'auto [num]' to
      * automatically compute and ensure that the max y-value is at least [num].
      *
-     * @brief Max Y
-     *
-     * @var string $ymax
      */
     public $ymax = 'auto';
     /**
@@ -64,19 +38,12 @@ abstract class MorrisCharts extends Handler
      * automatically compute and ensure that the min y-value is at most [num].
      * Hint: you can use this to create graphs with false origins.
      *
-     * @brief Min Y
-     *
-     * @var string $ymin
      */
     public $ymin = 0;
     /**
      * Set to false to always show a hover legend.
      * Set to true or 'auto' to only show the hover legend when the mouse cursor is over the chart.
      * Set to 'always' to never show a hover legend.
-     *
-     * @brief Hide over legend
-     *
-     * @var string
      */
     public $hideHover = 'auto';
     /**
@@ -90,69 +57,35 @@ abstract class MorrisCharts extends Handler
      *       return "sin(" + row.x + ") = " + row.y;
      *     }
      *
-     *
-     * @brief Hover callback
-     *
-     * @var string $hoverCallback
      */
     public $hoverCallback = '';
     /**
      * Set to false to disable drawing the x and y axes.
-     *
-     * @brief Axes
-     *
-     * @var bool $axes
      */
     public $axes = true;
     /**
      * Set to false to disable drawing the horizontal grid lines.
-     *
-     * @brief Grid
-     *
-     * @var bool $grid
      */
     public $grid = true;
     /**
      * Set the color of the axis labels (default: #888).
-     *
-     * @brief Grid text color
-     *
-     * @var string $gridTextColor
      */
     public $gridTextColor = '#888';
     /**
      * Set the point size of the axis labels (default: 12).
-     *
-     * @brief Grid text color
-     *
-     * @var int $gridTextSize
      */
     public $gridTextSize = '12';
     /**
      * Set the font family of the axis labels (default: sans-serif).
-     *
-     * @brief Grid font
-     *
-     * @var string $gridTextFamily
      */
     public $gridTextFamily = 'sans-serif';
     /**
      * Set the font weight of the axis labels (default: normal).
-     *
-     * @brief Font weight
-     *
-     * @var string $gridTextWeight
      */
     public $gridTextWeight = 'normal';
     /**
      * Set to true to enable automatic resizing when the containing element resizes. (default: false).
      * This has a significant performance impact, so is disabled by default.
-     *
-     * @brief Resize
-     *
-     * @since Morris 0.5.0
-     *
-     * @var bool $resize
      */
     public $resize              = false;
     public $rangeSelect         = null;
@@ -163,86 +96,44 @@ abstract class MorrisCharts extends Handler
      * A list of x-values to draw as vertical 'event' lines on the chart.
      *
      * eg: events: ['2012-01-01', '2012-02-01', '2012-03-01']
-     *
-     * @brief Events
-     *
-     * @var array $events
      */
     public $events = [];
     /**
      * Width, in pixels, of the event lines.
-     *
-     * @brief Events line width
-     *
-     * @var int $eventStrokeWidth
      */
     public $eventStrokeWidth = 1;
     /**
      * Array of color values to use for the event line colors. If you list fewer colors here than you have lines in
      * events, then the values will be cycled.
-     *
-     * @brief Events colors
-     *
-     * @var array $eventLineColors
      */
     public $eventLineColors = ['#005a04', '#ccffbb', '#3a5f0b', '#005502'];
     /**
      * A list of y-values to draw as horizontal 'goal' lines on the chart.
-     *
-     * eg: goals: [1.0, -1.0]
-     *
-     * @brief Goals
-     *
-     * @var array $goals
      */
     public $goals = [];
     /**
      * Width, in pixels, of the goal lines.
-     *
-     * @brief Goal stroke width
-     *
-     * @var int $goalStrokeWidth
      */
     public $goalStrokeWidth = 1;
     /**
      * Array of color values to use for the goal line colors. If you list fewer colors here than you have lines in goals,
      * then the values will be cycled.
-     *
-     * @brief Goals colors
-     *
-     * @var array $goalLineColors
      */
     public $goalLineColors = ['#666633', '#999966', '#cc6666', '#663333'];
     /**
      * Set to false to skip time/date parsing for X values, instead treating them as an equally-spaced series.
-     *
-     * @brief Parse time
-     *
-     * @var bool $parseTime
      */
     public $parseTime = true;
     /**
      * Set to a string value (eg: '%') to add a label suffix all y-labels.
-     *
-     * @brief Post units
-     *
-     * @var string $postUnits
      */
     public $postUnits = '';
     /**
      * Set to a string value (eg: '$') to add a label prefix all y-labels.
-     *
-     * @brief Pre units
-     *
-     * @var string $preUnits
      */
     public $preUnits = '';
     /**
      * Angle of x label
-     *
-     * @brief Angle
-     *
-     * @var int $xLabelAngle
      */
     public $xLabelAngle = 0;
     /**
@@ -261,6 +152,11 @@ abstract class MorrisCharts extends Handler
     public $legendItem = null;
     
     
+    /**
+     * MorrisCharts::__construct()
+     * 
+     * @return void
+     */
     public function __construct($element_id = null, $chart = MorrisChartTypes::LINE)
     {
         $this->element      = $element_id;
@@ -284,8 +180,14 @@ abstract class MorrisCharts extends Handler
     public function setLegend($legend=false){
         if(!$legend)
             $this->makeLegend = false;
-        else
-            $this->legendItem = $legend;
+        else{
+            if(is_array($legend)){
+                foreach($legend as $label=>$value)
+                    $legendItemData .=$this->generateLineLegened($label,$value);
+                $this->legendItem = $legendItemData;
+            }else
+                $this->legendItem = $legend;
+        }
         return $this;
     }
     
@@ -318,12 +220,19 @@ abstract class MorrisCharts extends Handler
     public function BuildLegend(){
         if(!$this->makeLegend)
             return false;
-        return (!is_null($this->legendItem)) ? 'var legendItem = "'.$this->legendItem.'"' : 'var legendItem = "";
+        return (!is_null($this->legendItem)) ? 'var legendItem = "'.$this->legendItem.'";' : 'var legendItem = "";
         '.$this->getElement().'.options.labels.forEach(function(label, i){
             legendItem += "<li class=\"legenditem\"><i style=\"background-color:"+'.$this->getElement().'.options.lineColors[i]+"\">&nbsp;</i>"+label+"</li>";
         });';
     }
     
+    /**
+     * MorrisCharts::generateLineLegened()
+     * 
+     */
+    public function generateLineLegened($label='',$value=''){
+        return '<li class=\"legenditem\"><i style=\"background-color:\"'.$label.'\">&nbsp;</i>'.$label.' : '.$value.'</li>';
+    }
     /**
      * MorrisCharts::getJavaCode()
      * 
