@@ -4,11 +4,6 @@
     "description": "PHP5 library to create charts.",
     "keywords": ["amcharts", "chart", "line", "pie", "bar"],
     "license": "MIT",
-    "authors": [
-        {
-            
-        }
-    ],
     "require": {
         "php": ">=5.6.0"
     },
